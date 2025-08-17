@@ -1,11 +1,11 @@
 import json
 import pytest
-from ..app import create_app
-from ..app.models import db
+from app import create_app
+from app.models import db
 
 @pytest.fixture()
 def client():
-    app = create_app("testing")
+    app = create_app()
     with app.app_context():
         db.create_all()
     client = app.test_client()
